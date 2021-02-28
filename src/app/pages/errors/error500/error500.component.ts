@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../../app.state';
 
 @Component({
   selector: 'app-error500',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Error500Component implements OnInit {
 
-  constructor() { }
+  deviceXs: boolean = false;
+  constructor(
+    private store: Store<AppState>
+  ) { }
 
   ngOnInit(): void {
+      this.store.select('device').subscribe(res => {
+        this.deviceXs = res;
+      });
+    }
   }
-
-}

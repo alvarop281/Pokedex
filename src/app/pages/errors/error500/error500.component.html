@@ -2,6 +2,8 @@
 
     <p>We don't have internet connection</p>
 
-    <img src="assets/errors/500/500.gif" alt="Not Found">
+    <img *ngIf="!deviceXs" src="assets/errors/500/500.gif" alt="Not Found">
+
+    <img class="errorImgXs" *ngIf="deviceXs" src="assets/errors/500/500.gif" alt="Not Found">
 
 </div>
