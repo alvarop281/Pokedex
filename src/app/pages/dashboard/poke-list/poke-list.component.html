@@ -1,16 +1,37 @@
-<div *ngIf="deviceXs" class="poke-list">
-    <div [infiniteScrollContainer]="selector" infiniteScroll [infiniteScrollDistance]="2" [fromRoot]="true" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
-        <div *ngFor="let poke of pokeList" class="listXs">
-            <a (click)="pokemonSelected(poke.id) ">
-                <img src="{{img + poke.id + '.png'}} " alt="{{poke.name}} ">
+<div *ngIf="deviceXs">
+    <div class="poke-list">
+        <div [infiniteScrollContainer]="selector" infiniteScroll [infiniteScrollDistance]="2" [fromRoot]="true" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
+            <div *ngFor="let poke of pokeList" class="listXs">
+                <a (click)="pokemonSelected(poke.id) ">
+                    <img src="{{img + poke.id + '.png'}} " alt="{{poke.name}} ">
 
-                <p>{{poke.name | titlecase}}</p>
-            </a>
+                    <p>{{poke.name | titlecase}}</p>
+                </a>
+            </div>
+
         </div>
 
+        <div class="poke-spinnerXs">
+            <ngx-spinner bdOpacity=0.9 bdColor="" size="default" color="#584F87" type="ball-pulse-sync" [fullScreen]="false"></ngx-spinner>
+        </div>
     </div>
+</div>
 
-    <div class="poke-spinnerXs">
-        <ngx-spinner bdOpacity=0.9 bdColor="" size="default" color="#584F87" type="ball-pulse-sync" [fullScreen]="false"></ngx-spinner>
+<div *ngIf="!deviceXs">
+    <div class="poke-list">
+        <div [infiniteScrollContainer]="selector" infiniteScroll [infiniteScrollDistance]="2" [fromRoot]="true" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
+            <div *ngFor="let poke of pokeList" class="listXs">
+                <a (click)="pokemonSelected(poke.id) ">
+                    <img src="{{img + poke.id + '.png'}} " alt="{{poke.name}} ">
+
+                    <p>{{poke.name | titlecase}}</p>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="poke-spinnerXs">
+            <ngx-spinner bdOpacity=0.9 bdColor="" size="default" color="#584F87" type="ball-pulse-sync" [fullScreen]="false"></ngx-spinner>
+        </div>
     </div>
 </div>
