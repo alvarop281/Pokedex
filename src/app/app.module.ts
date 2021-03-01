@@ -24,9 +24,6 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PokeInfoComponent } from './pages/dashboard/poke-info/poke-info.component';
 import { PokeListComponent } from './pages/dashboard/poke-list/poke-list.component';
 
-// Angular Material
-import {ScrollingModule} from '@angular/cdk/scrolling';
-
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
@@ -47,9 +44,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     StoreModule.forRoot({
       device: deviceReducer,
       pokeList: PokeListReducer,
-      PokeSelectedReducer
+      pokeSelected: PokeSelectedReducer
     }),
-    ScrollingModule,
     InfiniteScrollModule,
     NgxSpinnerModule,
     BrowserAnimationsModule

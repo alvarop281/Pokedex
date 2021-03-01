@@ -9,7 +9,7 @@ import { PokeInfo } from '../../../models/PokeInfo';
 // Store
 import { Store } from '@ngrx/store';
 import { AppState } from './../../../app.state';
-import * as PSActions from '../actions/pokeSelected';
+import * as PSActions from '../actions/pokeSelected.actions';
 
 // Services
 import { PokemonInfoService } from '../../services/pokemon-info.service'; 
@@ -47,7 +47,7 @@ export class PokeListComponent implements OnInit {
   }
 
   pokemonSelected(id: string){
-    this.store.dispatch( new PSActions.AddPokemon(id) );
+    this.store.dispatch( new PSActions.SetPokemon(id) );
   }
 
   onScroll(){

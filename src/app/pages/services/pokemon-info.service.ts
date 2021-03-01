@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment.prod';
+import {Router} from '@angular/router';
 
 // Models
 import { PokeInfo } from '../../models/PokeInfo';
@@ -18,13 +19,17 @@ export class PokemonInfoService {
   url: string = environment.pokeInfo;
   constructor(
     private _http: HttpClient,
-    private store: Store<AppState>                   // Store
+    private store: Store<AppState>,                   // Store
+    private router:Router
   ) { }
 
   getPokeList(offset: number){
     this._http.get(this.url + '?limit=15&offset=' + offset)
         .subscribe(res => {
           this.makePokeList(res['results'])
+        },
+        err =>{
+          this.router.navigate(['404']);
         })
   }
 

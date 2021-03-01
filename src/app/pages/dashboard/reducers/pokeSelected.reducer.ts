@@ -1,12 +1,13 @@
-import * as PSActions from '../actions/pokeSelected';
+import { Action } from '@ngrx/store'
+import * as PSAction from '..//actions/pokeSelected.actions';
 
-const initialState: string = '';
+const initialState: string = '1';
 
-export function PokeSelectedReducer( state: string = initialState, action: PSActions.Actions ) {
+export function PokeSelectedReducer( state: string = initialState, action: PSAction.Actions ) {
     switch( action.type ){
-        case PSActions.ADD_POKEMON: 
+        case PSAction.SET_POKEMON:
             return state = action.payload;
         default:
             return state;
     }
-}
+} 

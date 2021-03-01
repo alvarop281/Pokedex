@@ -7,8 +7,8 @@ import { Error500Component } from './pages/errors/error500/error500.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const routes: Routes = [
-  // { path: '', component: Error404Component },
-  // { path: '', component: Error500Component },
+  { path: '404', component: Error404Component },
+  { path: '500', component: Error500Component },
   { path: '', component: DashboardComponent }
 ];
 
